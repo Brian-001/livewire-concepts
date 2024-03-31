@@ -2,8 +2,9 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
-
+#[Title('Todos App')]
 class Todos extends Component
 {
     public $todo = '';

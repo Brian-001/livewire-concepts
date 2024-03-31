@@ -135,3 +135,9 @@ ie
         }
 
 
+### How to generate livewire layout
+
+``` php artisan livewire:layout ```
+<br>
+This will generate a file in this path ```resources/views/components/layouts/app.blade.php```
+<br>
