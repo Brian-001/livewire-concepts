@@ -141,3 +141,6 @@ ie
 <br>
 This will generate a file in this path ```resources/views/components/layouts/app.blade.php```
 <br>
+
+### Faker & Factory
+<strong>Factories</strong> are used to define the structure of your model's fake data, while <strong>seeders</strong> are used to populate your database with that fake data.
