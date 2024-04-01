@@ -143,4 +143,63 @@ This will generate a file in this path ```resources/views/components/layouts/app
 <br>
 
 ### Faker & Factory
-<strong>Factories</strong> are used to define the structure of your model's fake data, while <strong>seeders</strong> are used to populate your database with that fake data.
+<strong>Factories</strong> are used to define the structure of your model's fake data, while <strong>seeders</strong> are used to populate your database with that fake data. ie
+
+<br>
+PostFactory
+
+
+        <?php
+
+        namespace Database\Factories;
+
+        use App\Models\Post;
+        use Illuminate\Database\Eloquent\Factories\Factory;
+
+        /**
+         * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+         */
+        class PostFactory extends Factory
+        {
+            protected $model = Post::class;
+            /**
+             * Define the model's default state.
+             *
+             * @return array<string, mixed>
+             */
+            public function definition(): array
+            {
+                return [
+                    //
+                    'title' => $this->faker->sentence,
+                    'content' => $this->faker->paragraph,
+                ];
+            }
+        }
+
+PostsSeeder
+
+        <?php
+
+        namespace Database\Seeders;
+
+        use App\Models\Post;
+        use Illuminate\Database\Seeder;
+        use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+        class PostsSeeder extends Seeder
+        {
+            /**
+             * Run the database seeds.
+             */
+
+
+            public function run(): void
+            {
+                Post::factory(10)->create();
+            }
+        }
+### Foreach Loop in Livewire
+Anytime, you are using foreach loop, kindly ensure you insert keys inside items in the loop. These keys ansures that livewire can be able to re-order, search, filter items efficiently.
+
+
