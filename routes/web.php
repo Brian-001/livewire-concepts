@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Counter;
+use App\Livewire\CreatePost;
 use App\Livewire\HelloWorld;
 use App\Livewire\Showposts;
 use App\Livewire\Todos;
@@ -22,3 +23,4 @@ Route::get('/', Todos::class);
 Route::get('/counter', Counter::class);
 Route::get('/hello-world', HelloWorld::class);
 Route::get('/showposts', Showposts::class);
+Route::get('/create-post', CreatePost::class);

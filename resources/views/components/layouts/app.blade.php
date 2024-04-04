@@ -22,7 +22,8 @@
                         <li><a href="/" class="block py-2 px-4 text-gray-600  {{ request()->is('/') ? 'bg-gray-800 text-white' : '' }}">Todos</a></li>
                         <li><a href="/counter" class="block py-2 px-4 text-gray-600  {{ request()->is('counter') ? 'bg-gray-800 text-white' : '' }}">Counter</a></li>
                         <li><a href="/hello-world" class="block py-2 px-4 text-gray-600 {{ request()->is('hello-world') ? 'bg-gray-800 text-white' : '' }}">Hello</a></li>
-                        <li><a href="/showposts" class="block py-2 px-4 text-gray-600 hover:bg-gray-200 {{ request()->is('showposts') ? 'bg-gray-800 text-white' : '' }}">Posts</a></li>
+                        <li><a href="/showposts" class="block py-2 px-4 text-gray-600 {{ request()->is('showposts') ? 'bg-gray-800 text-white' : '' }}">Posts</a></li>
+                        <li><a href="/create-post" class="block py-2 px-4 text-gray-600 {{ request()->is('create-post') ? 'bg-gray-800 text-white' : '' }}">Create Post</a></li>
                     </ul>
                 </nav>
             </div>
