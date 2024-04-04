@@ -200,6 +200,20 @@ PostsSeeder
             }
         }
 ### Foreach Loop in Livewire
-Anytime, you are using foreach loop, kindly ensure you insert keys inside items in the loop. These keys ansures that livewire can be able to re-order, search, filter items efficiently.
+Anytime, you are using foreach loop, kindly ensure you ```insert keys```  inside items in the loop. These keys ansures that livewire can be able to re-order, search, filter items efficiently.
+ie 
 
+        @foreach ($posts as $post )
+            <tr wire:key="{{$post->id}}">
+                <td class="px-4 py-2">{{ $post->title }}</td>
+                <!-- truncate word length to 8 words -->
+                <td class="px-4 py-2">{{ str($post->content)->words(8) }}</td>
+                <td class="px-4 py-2 inline-flex">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2">Edit</button>
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded" type="button" wire:click="delete({{ $post->id }})" wire:confirm="Are you sure you want to delete this post?">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        @endforeach
 
