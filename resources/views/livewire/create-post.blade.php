@@ -2,6 +2,8 @@
     <div class="max-w-md w-full bg-white p-6 rounded-lg shadow-md">
         <h2 class="text-2xl mb-6 text-center">Create Post</h2>
 
+        Current text <span x-text="$wire.title"></span>
+
         <form wire:submit.prevent="save">
             <div class="mb-4">
                 <label for="title" class="block text-gray-600">Title</label>
