@@ -3,6 +3,7 @@
         <h2 class="text-2xl mb-6 text-center">Create Post</h2>
 
         Current text <span x-text="$wire.title"></span>
+        <button x-on:click="$wire.save()" class="py-2 px-4 bg-blue-500">Clear Title</button>
 
         <form wire:submit.prevent="save">
             <div class="mb-4">
@@ -15,6 +16,9 @@
             <div class="mb-4">
                 <label for="content" class="block text-gray-600">Content</label>
                 <textarea wire:model="content" name="content" id="content" cols="30" rows="5" class="border-2 border-gray-300 rounded-lg px-4 py-2 w-full resize-none focus:outline-none focus:border-blue-400"></textarea>
+                <small>Words
+                    <span x-text="$wire.content.split(' ').length - 1"></span>
+                </small>
                 @error('content')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                 @enderror
