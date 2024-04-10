@@ -1,4 +1,4 @@
-# <h1 style = "color: #C25C8B; " >Learning Livewire from scratch<h1>
+# <h1 style = "color:red;" >Learning Livewire from scratch<h1>
 
 Livewire is a full-stack framework for Laravel that allows you to build interactive web applications using PHP, without the need for writing JavaScript.
 
@@ -225,4 +225,72 @@ ie
             </td>
         </tr>
     @endforeach
-````
+```
+
+<h2 Livewire Nesting style="color:red">Livewire Nesting</h2>
+
+This happens when you have a parent component and a child component. The child component is nested in a parent component.
+
+**Parent component's view (showposts.blade.php)**
+
+```php
+    @foreach ($posts as $post )
+        <tr wire:key="{{$post->id}}">
+            <td>{{ $post->title }}</td>
+            <!-- truncate word length to 8 words -->
+            <td>{{ str($post->content)->words(8) }}</td>
+            <td>
+                <button type="button" wire:click="delete({{ $post->id }})" wire:confirm="Are you sure you want to delete this post?">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    @endforeach
+```
+**How to reference a component inside another component**
+
+```php
+<livewire:post-row>
+```
+>Extract contents (tr) of parent component and copy paste them in the childs component. So, the parent component will be like:
+
+**showposts.blade.php**
+
+```php
+    @foreach ($posts as $post )
+       <livewire:post-row> 
+    @endforeach
+```
+**post-row.blade.php**
+
+```php
+    <tr wire:key="{{$post->id}}">
+        <td>{{ $post->title }}</td>
+        <!-- truncate word length to 8 words -->
+        <td>{{ str($post->content)->words(8) }}</td>
+        <td>
+            <button type="button" wire:click="delete({{ $post->id }})" wire:confirm="Are you sure you want to delete this post?">
+                Delete
+            </button>
+        </td>
+    </tr>
+```
+If you run the following code you will run into an error simply because we are referencing `post` in our nested component which is `post-row.blade.php`. It doesn't exists and it is not a property and of our nested component.
+
+⚠️ Warning: 
+<p style="color:yellow;">Undefined variable $post</p>
+
+To curb this, modify the reference to look like this:
+
+**showposts.blade.php**
+
+```php
+    @foreach ($posts as $post )
+       <livewire:post-row :key="$post->id" :$post> 
+    @endforeach
+```
+Colon passes the variable post whereas if the colon is left out, it passes a sting $post
+
+Adding `wire:key="{{ $post->id }}"` or the shorthand :`key="$post->id"` enables livewire to re-order items in case anything changes.
+
+In case 
