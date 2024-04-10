@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Post;
-use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\Attributes\Title;
 
 #[Title('Posts')]
 class Showposts extends Component

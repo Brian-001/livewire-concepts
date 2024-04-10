@@ -24,7 +24,14 @@ class CreatePost extends Component
             'content' => $this->content,
         ]);
 
-        $this->redirect('/showposts');
+        $this->redirect('/showposts', navigate:true);
+    }
+    
+    //Method to clear all the fields
+    public function clearFields()
+    {
+        $this->title = '';
+        $this->content = '';
     }
     public function render()
     {

@@ -3,7 +3,7 @@
         <h2 class="text-2xl mb-6 text-center">Create Post</h2>
 
         Current text <span x-text="$wire.title"></span>
-        <button x-on:click="$wire.save()" class="py-2 px-4 bg-blue-500">Clear Title</button>
+        <button wire:click="clearFields" class="py-2 px-4 bg-blue-500">Clear Fields</button>
 
         <form wire:submit.prevent="save">
             <div class="mb-4">
