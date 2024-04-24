@@ -24,6 +24,7 @@
                         <li><a wire:navigate href="/hello-world" class="block py-2 px-4 text-gray-600 {{ request()->is('hello-world') ? 'bg-gray-800 text-white' : '' }}">Hello</a></li>
                         <li><a wire:navigate href="/showposts" class="block py-2 px-4 text-gray-600 {{ request()->is('showposts') ? 'bg-gray-800 text-white' : '' }}">Posts</a></li>
                         <li><a wire:navigate href="/create-post" class="block py-2 px-4 text-gray-600 {{ request()->is('create-post') ? 'bg-gray-800 text-white' : '' }}">Create Post</a></li>
+                        <li><a wire:navigate href="/edit-profile" class="block py-2 px-4 text-gray-600 {{ request()->is('edit-profile') ? 'bg-gray-800 text-white' : '' }}">Edit Profile</a></li>
                     </ul>
                 </nav>
             </div>

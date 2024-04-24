@@ -2,6 +2,7 @@
 
 use App\Livewire\Counter;
 use App\Livewire\CreatePost;
+use App\Livewire\EditProfile;
 use App\Livewire\HelloWorld;
 use App\Livewire\Showposts;
 use App\Livewire\Todos;
@@ -24,3 +25,4 @@ Route::get('/counter', Counter::class);
 Route::get('/hello-world', HelloWorld::class);
 Route::get('/showposts', Showposts::class);
 Route::get('/create-post', CreatePost::class);
+Route::get('/edit-profile',EditProfile::class);

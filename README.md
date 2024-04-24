@@ -289,8 +289,28 @@ To curb this, modify the reference to look like this:
        <livewire:post-row :key="$post->id" :$post> 
     @endforeach
 ```
-Colon passes the variable post whereas if the colon is left out, it passes a sting $post
+Colon passes the variable post whereas if the colon is left out, it passes a string $post
 
 Adding `wire:key="{{ $post->id }}"` or the shorthand :`key="$post->id"` enables livewire to re-order items in case anything changes.
 
-In case 
+In case you want to call a method in parent component inside a child component, use `$parent.method()` 
+
+Making Links load faster without refreshing page
+
+```php
+wire:navigate
+```
+
+For Example 
+
+```php
+<ul>
+                    
+    <li><a wire:navigate href="/">Todos</a></li>
+    <li><a wire:navigate href="/counter">Counter</a></li>
+    <li><a wire:navigate href="/hello-world">Hello</a></li>
+    <li><a wire:navigate href="/showposts">Posts</a></li>
+    <li><a wire:navigate href="/create-post">Create Post</a></li>
+    <li><a wire:navigate href="/edit-profile">Edit Profile</a></li>
+</ul>
+```
